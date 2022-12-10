@@ -1,0 +1,583 @@
+CREATE DATABASE HospitalMySQL
+
+CREATE TABLE UnidadMedica
+(
+IdUnidadMedica int NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(30) NOT NULL,
+direccion VARCHAR(50) NOT NULL,
+colonia VARCHAR(20) NOT NULL,
+estado VARCHAR(20) NOT NULL,
+municipio VARCHAR(20) NOT NULL,
+calle VARCHAR(20) NOT NULL,
+numero INT NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdEdificio INT NOT NULL,
+IdEquipo INT NOT NULL,
+IdResidencia INT NOT NULL,
+IdServicioSanitario INT NOT NULL,
+IdAlmacen INT NOT NULL,
+IdPagoUnidadMedica INT NOT NULL,
+IdEmpleado INT NOT NULL,
+IdReglamento INT NOT NULL,
+IdAsamblea INT NOT NULL,
+IdEvento INT NOT NULL,
+IdVisita INT NOT NULL,
+IdHorario INT NOT NULL,
+IdServicioSocial INT NOT NULL,
+IdCliente INT NOT NULL,
+IdAmbulancia INT NOT NULL,
+IdFacturaCliente INT NOT NULL,
+PRIMARY KEY (IdUnidadMedica)
+);
+
+
+CREATE TABLE Almacen
+(
+IdAlmacen INT NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdAlmacen)
+);
+
+CREATE TABLE Ambulancia
+(
+IdAmbulancia int NOT NULL AUTO_INCREMENT,
+NumAmbulancia int not null,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdAmbulancia)
+);
+CREATE TABLE AltaMedica
+(
+IdAltaMedica int NOT NULL AUTO_INCREMENT,
+Fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdAltaMedica)
+);
+
+CREATE TABLE Area 
+(
+IdArea int NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdTipoDeArea INT NOT NULL,
+PRIMARY KEY (IdArea)
+);
+
+CREATE TABLE Asamblea 
+(
+IdAsamblea  int NOT NULL AUTO_INCREMENT,
+Fecha Datetime,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdHorario INT NOT NULL,
+PRIMARY KEY (IdAsamblea)
+);
+
+CREATE TABLE AnalisisMedico
+(
+IdAnalisisMedico int NOT NULL AUTO_INCREMENT,
+NumAmbulancia Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdAnalisisMedico)
+);
+
+CREATE TABLE Asamblea 
+(
+IdAsamblea int NOT NULL AUTO_INCREMENT,
+Fecha Datetime,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdHorario INT NOT NULL,
+PRIMARY KEY (IdAsamblea)
+);
+
+CREATE TABLE Area 
+(
+IdArea int NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdTipoArea INT NOT NULL,
+PRIMARY KEY (IdArea)
+);
+
+CREATE TABLE Articulo 
+(
+IdArticulo int NOT NULL AUTO_INCREMENT,
+nombreArticulo Date,
+cantidad VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdArticulo)
+);
+
+CREATE TABLE Cama 
+(
+IdCama int NOT NULL AUTO_INCREMENT,
+numCama VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCama)
+);
+
+CREATE TABLE CartillaSalud 
+(
+IdCartillaSalud int NOT NULL AUTO_INCREMENT,
+Nss VARCHAR(50) NOT NULL,
+NoRegistro VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCartillaSalud)
+);
+
+CREATE TABLE CedulaMedica 
+(
+IdCedulaMedica int NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+numCedulaMedica INT NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdEspecialidad INT NOT NULL,
+PRIMARY KEY (IdCedulaMedica)
+);
+
+CREATE TABLE Cirugia 
+(
+IdCirugia int NOT NULL AUTO_INCREMENT,
+Fecha Date,
+noCirugia VARCHAR(50) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCirugia)
+);
+
+CREATE TABLE Cliente 
+(
+IdCliente int NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+apellidoPaterno VARCHAR(50) NOT NULL,
+apellidoMaterno VARCHAR(50) NOT NULL,
+curp VARCHAR(50) NOT NULL,
+calle VARCHAR(50) NOT NULL,
+colonia VARCHAR(50) NOT NULL,
+telefono VARCHAR(50) NOT NULL,
+numero VARCHAR(50) NOT NULL,
+codigopostal VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdFacturaCliente INT NOT NULL,
+IdPagoCliente INT NOT NULL,
+IdCompraCliente INT NOT NULL,
+PRIMARY KEY (IdCliente)
+);
+
+CREATE TABLE Cita 
+(
+IdCita int NOT NULL AUTO_INCREMENT,    
+numCita int,
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCita)
+);
+
+CREATE TABLE ClinicaMedica 
+(
+IdClinicaMedica int NOT NULL AUTO_INCREMENT,    
+NoClinica VARCHAR(50) NOT NULL,
+NombreClinicaMedica VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdClinicaMedica)
+);
+
+CREATE TABLE Comida 
+(
+IdComida int NOT NULL AUTO_INCREMENT,    
+NombreComida VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,  
+PRIMARY KEY (IdComida)
+);
+
+CREATE TABLE Compra 
+(
+IdCompra int NOT NULL AUTO_INCREMENT,        
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+IdArticulo INT NOT NULL,
+PRIMARY KEY (IdCompra)
+);
+
+CREATE TABLE CompraPaciente
+(
+IdCompraPaciente int NOT NULL AUTO_INCREMENT,        
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCompraPaciente)
+);
+
+CREATE TABLE CompraCliente
+(
+IdCompraCliente int NOT NULL AUTO_INCREMENT,        
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdCompraCliente)
+);
+
+CREATE TABLE ConsultaMedica
+(
+IdConsultaMedica int NOT NULL AUTO_INCREMENT,        
+fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdConsultaMedica)
+);
+
+CREATE TABLE Edificio
+(
+IdEdificio int NOT NULL AUTO_INCREMENT,           
+noEdificio VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdElevador INT NOT NULL,
+IdFarmacia INT NOT NULL,
+IdArea INT NOT NULL,
+IdReglamento INT NOT NULL,
+IdHabitacion INT NOT NULL,
+PRIMARY KEY (IdEdificio)
+);
+
+CREATE TABLE Elevador
+(
+IdElevador int NOT NULL AUTO_INCREMENT,           
+numElevador VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdElevador)
+);
+
+CREATE TABLE Empleado
+(
+IdEmpleado int NOT NULL AUTO_INCREMENT,           
+nombre VARCHAR(50) NOT NULL,
+apellidoPaterno VARCHAR(50) NOT NULL,
+apellidoMaterno VARCHAR(50) NOT NULL,
+RFC VARCHAR(50) NOT NULL,
+calle VARCHAR(50) NOT NULL,
+colonia VARCHAR(50) NOT NULL,
+numero VARCHAR(50) NOT NULL,
+telefono VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdConsultaMedica INT NOT NULL,
+IdAnalisisMedico  INT NOT NULL,
+IdTratamiento  INT NOT NULL,
+IdComida  INT NOT NULL,
+IdRecetaMedica  INT NOT NULL,
+IdClinicaMedica  INT NOT NULL,
+IdCompra  INT NOT NULL,
+IdCedulaMedica  INT NOT NULL,
+IdCirugia  INT NOT NULL,
+IdAsamblea  INT NOT NULL,
+IdTransporteEmpleado  INT NOT NULL,
+IdMantenimiento  INT NOT NULL,
+PRIMARY KEY (IdEmpleado)
+);
+
+CREATE TABLE Enfermedad
+(
+IdEnfermedad int NOT NULL AUTO_INCREMENT,           
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdTipoEnfermedad  INT NOT NULL,
+PRIMARY KEY (IdEnfermedad)
+);
+
+CREATE TABLE Equipo
+(
+IdEquipo int NOT NULL AUTO_INCREMENT,               
+nombre VARCHAR(50) NOT NULL,
+cantidad VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdEquipo)
+);
+
+CREATE TABLE Especialidad
+(
+IdEspecialidad int NOT NULL AUTO_INCREMENT,               
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdEspecialidad)
+);
+
+CREATE TABLE Estudiante
+(
+IdEstudiante int NOT NULL AUTO_INCREMENT,                   
+nombreEstudiante VARCHAR(50) NOT NULL,
+apellidoPaterno VARCHAR(50) NOT NULL,
+apellidoMaterno VARCHAR(50) NOT NULL,
+matricula VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdEstudiante)
+);
+
+CREATE TABLE Evento
+(
+IdEvento int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+fecha Date,
+direccion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdHorario INT NOT NULL,
+IdAsamblea INT NOT NULL,
+PRIMARY KEY (IdEvento)
+);
+
+CREATE TABLE ExpedienteMedico
+(
+IdExpedienteMedico int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdExpedienteMedico)
+);
+
+CREATE TABLE FacturaCliente
+(
+IdFacturaCliente int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+cantidad VARCHAR(50) NOT NULL,
+fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdFacturaCliente)
+);
+
+CREATE TABLE FacturaProveedor
+(
+IdFacturaProveedor int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+cantidad VARCHAR(50) NOT NULL,
+fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdFacturaProveedor)
+);
+
+CREATE TABLE Farmacia
+(
+IdFarmacia int NOT NULL AUTO_INCREMENT,                       
+lugar VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdMedicamento INT NOT NULL,
+IdArticulo INT NOT NULL,
+IdPagoCliente INT NOT NULL,
+IdCompraCliente INT NOT NULL,
+PRIMARY KEY (IdFarmacia)
+);
+
+CREATE TABLE Habitacion
+(
+IdHabitacion int NOT NULL AUTO_INCREMENT,                       
+lugar VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdHabitacion)
+);
+
+CREATE TABLE Horario
+(
+IdHorario int NOT NULL AUTO_INCREMENT,                       
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdHorario)
+);
+
+CREATE TABLE Ingreso
+(
+IdIngreso int NOT NULL AUTO_INCREMENT,                       
+numero VARCHAR(50) NOT NULL,
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdIngreso)
+);
+
+CREATE TABLE Mantenimiento
+(
+IdMantenimiento int NOT NULL AUTO_INCREMENT,                       
+descripcion VARCHAR(50) NOT NULL,
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdMantenimiento)
+);
+
+CREATE TABLE Medicamento
+(
+IdMedicamento int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdMedicamento)
+);
+
+CREATE TABLE Paciente
+(
+IdPaciente int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+fecha Date,
+estatus BIT DEFAULT 1 NOT NULL,
+IdEnfermedad INT NOT NULL,
+IdCitaMedica INT NOT NULL,
+IdCama INT NOT NULL,
+IdAltaMedica INT NOT NULL,
+IdConsultaMedica INT NOT NULL,
+IdAnalisMedico  INT NOT NULL,
+IdTratamiento  INT NOT NULL,
+IdComida  INT NOT NULL,
+IdRecetaMedica  INT NOT NULL,
+IdClinicaMedica  INT NOT NULL,
+IdExpedienteMedico  INT NOT NULL,
+IdCartillaSalud  INT NOT NULL,
+IdIngreso  INT NOT NULL,
+IdCedulaMedica  INT NOT NULL,
+IdCirugia  INT NOT NULL,
+IdAsamblea  INT NOT NULL,
+IdTransporteEmpleado  INT NOT NULL,
+IdMantenimiento  INT NOT NULL,
+PRIMARY KEY (IdPaciente)
+);
+
+CREATE TABLE PagoUnidadMedica
+(
+IdPagoUnidadMedica int NOT NULL AUTO_INCREMENT,                       
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdPagoUnidadMedica)
+);
+
+CREATE TABLE PagoCliente
+(
+IdPagoCliente int NOT NULL AUTO_INCREMENT,                       
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdPagoCliente)
+);
+
+CREATE TABLE Practicante
+(
+IdPracticante int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+apellidoPaterno VARCHAR(50) NOT NULL,
+apellidoMaterno VARCHAR(50) NOT NULL,
+matricula VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdPracticante)
+);
+
+CREATE TABLE Proveedor
+(
+IdProveedor int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+rfc VARCHAR(50) NOT NULL,
+telefono VARCHAR(50) NOT NULL,
+calle VARCHAR(50) NOT NULL,
+numero int,
+colonia VARCHAR(50) NOT NULL,
+codigopostal VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdFacturaProveedor INT NOT NULL,
+PRIMARY KEY (IdProveedor)
+);
+
+CREATE TABLE RecetaMedica
+(
+IdRecetaMedica int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdMedicamento  int not null,
+PRIMARY KEY (IdRecetaMedica)
+);
+
+CREATE TABLE Reglamento
+(
+IdReglamento int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdReglamento)
+);
+
+CREATE TABLE Residencia
+(
+IdResidencia int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdPracticante  int not null,
+PRIMARY KEY (IdResidencia)
+);
+
+CREATE TABLE ServicioSanitario
+(
+IdServicioSanitario int NOT NULL AUTO_INCREMENT,                       
+fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdServicioSanitario)
+);
+
+CREATE TABLE ServicioSocial
+(
+IdServicioSocial int NOT NULL AUTO_INCREMENT,                       
+fecha Date,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdEstudiante  int not null
+PRIMARY KEY (IdServicioSocial)
+);
+
+CREATE TABLE TipoArea
+(
+IdTipoArea int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL
+PRIMARY KEY (IdTipoArea)
+);
+
+CREATE TABLE TipoEnfermedad
+(
+IdTipoEnfermedad int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL
+PRIMARY KEY (IdTipoEnfermedad)
+);
+
+CREATE TABLE TransporteEmpleado
+(
+IdTransporteEmpleado int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL
+PRIMARY KEY (IdTransporteEmpleado)
+);
+
+CREATE TABLE Tratamiento
+(
+IdTratamiento int NOT NULL AUTO_INCREMENT,                       
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+PRIMARY KEY (IdTratamiento)
+);
+
+CREATE TABLE Visita
+(
+IdVisita int NOT NULL AUTO_INCREMENT,                       
+numVisita VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+estatus BIT DEFAULT 1 NOT NULL,
+IdHorario INT NOT NULL
+PRIMARY KEY (IdVisita)
+);
